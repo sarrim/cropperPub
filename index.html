@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Croper</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<link rel="stylesheet" href="./style.css">
+	<script src="//cdn.8thwall.com/web/iframe/iframe.js"></script>
+	<!-- jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/css/uikit.min.css">
+	<!-- cropzee.js -->
+	<script src="https://cdn.jsdelivr.net/gh/BossBele/cropzee@v2.0/dist/cropzee.js" defer></script>
+	
+	<script>
+				$(document).ready(function(){
+					$("#input").cropzee();
+				    $.each($("input[name='enable']"), function(){
+				   		if ($(this).is(":checked")) {
+				   			$(this).closest("div.uk-position-relative").find("textarea").removeAttr("disabled");
+				   		} else {
+				    		$(this).closest("div.uk-position-relative").find("textarea").attr("disabled", "disabled");
+				    	}
+			        });
+				   
+				});
+				var destroyPlugin = function($elem, eventNamespace) {
+					var isInstantiated  = !! $.data($elem.get(0));
+					if (isInstantiated) {
+						$.removeData($elem.get(0));
+						$elem.off(eventNamespace);
+						$elem.unbind('.' + eventNamespace);
+					}
+				};
+			</script>
+	<style>
+		* {
+			font-family: sans-serif;
+		}
+		.image-previewer {
+			height: 196px;
+			width: 300px;
+			display: flex;
+			border-radius: 10px;
+			border: 1px solid lightgrey;
+		}
+		li {
+			font-size: 11px;
+		}
+		.dependencies {
+			font-family: 'Reenie Beanie', cursive;
+			font-size: 28px;
+			text-decoration: none;
+		}
+		textarea {
+			resize: none;
+			min-height: 50px;
+		}
+		pre, code {
+			user-select: all;
+		}
+	</style>
+</head>
+<body class="">
+	<main>
+	<div class="loading" id="loader" style="display:none;">Loading&#8230;</div>
+
+	<img id="outputImg" style="z-index:0;display:none;">    
+		<div class="svgDiv">
+			<svg data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop" width="38" height="40" viewBox="0 0 38 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M36 34H12M0 6H8H0ZM36 6H16H36ZM0 20H24H0ZM36 20H32H36ZM0 34H4H0Z" stroke="#FF6600" stroke-width="2.66667" stroke-linecap="round"></path>
+				<path d="M12 10C14.2091 10 16 8.20914 16 6C16 3.79086 14.2091 2 12 2C9.79086 2 8 3.79086 8 6C8 8.20914 9.79086 10 12 10Z" stroke="#FF6600" stroke-width="2.66667" stroke-linecap="round"></path>
+				<path d="M28 24C30.2091 24 32 22.2091 32 20C32 17.7909 30.2091 16 28 16C25.7909 16 24 17.7909 24 20C24 22.2091 25.7909 24 28 24Z" stroke="#FF6600" stroke-width="2.66667" stroke-linecap="round"></path>
+				<path d="M8 38C10.2091 38 12 36.2091 12 34C12 31.7909 10.2091 30 8 30C5.79086 30 4 31.7909 4 34C4 36.2091 5.79086 38 8 38Z" stroke="#FF6600" stroke-width="2.66667" stroke-linecap="round"></path>
+			</svg>
+		</div>
+			<iframe src="https://playcanv.as/e/p/WGXlWuE6/" id="appIframe" class="iframeclass" allow="camera;gyroscope;accelerometer;magnetometer;xr-spatial-tracking;microphone;"></iframe>
+			<div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+				<div class="offcanvas-header">
+				  <div class="closeCanvasBtn" data-bs-dismiss="offcanvas" aria-label="Close">
+					<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+					  <path d="M29 29L1 1M1 29L29 1L1 29Z" stroke="#FF6600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>
+				  </div>
+				</div>
+				<div class="offcanvas-body">
+					<div class="offcanvasDiv1">
+						<h1>BAC Mono </h1>
+						<h1>Art Contest</h1>
+					</div>
+					<div class="offcanvasDiv2">
+						<h5>Upload your artwork and look at the results on the BAC Mono in AR.</h5>
+					</div>
+					<form method="post" action="#" enctype="multipart/form-data" id="myform" class="feature-button" style="position: absolute;
+					display: block;
+					width: 75%;
+					border-radius: 10px;
+					height: 0px;">
+						<!-- <div class="uk-container uk-card uk-card-default uk-padding uk-margin-medium-bottom">
+							<div class="uk-grid uk-child-width-1-3@m">
+								<div>
+									<label for="input" class="image-previewer" data-cropzee="input"> Upload Art Work</label>
+									<input type="file" style="visibility:hidden; position: absolute;"  id="input" name="files[]" onchange="loadFile(event)"  />
+								</div>
+							</div>
+						</div> -->
+									<label for="input" class="image-previewer" data-cropzee="input" style="height: 190px"></label>
+									<input id="input" type="file" accept="image/*">
+									<small style="color: #ff6600;"> (supported formats: jpg, png, gif, jpeg)</small>
+					</form>
+					
+					<!-- <div class="feature-button" onclick="document.getElementById('input').click()" style="margin-top: 300px;"> -->
+					<div class="feature-button" onclick="submitfrom(1)" style="margin-top: 300px;">
+						<h5>Upload Artwork</h5>
+					</div>
+					<div class="feature-button" id="ar" onclick="loadAR()" style="display:flex;">
+						<h5>BAC Mono in AR</h5>
+						<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+						  <path d="M3.00004 4.33325C3.00004 3.59992 3.60004 2.99992 4.33337 2.99992H7.00004V0.333252H4.33337C2.12004 0.333252 0.333374 2.11992 0.333374 4.33325V6.99992H3.00004V4.33325ZM3.00004 25.6666V22.9999H0.333374V25.6666C0.333374 27.8799 2.12004 29.6666 4.33337 29.6666H7.00004V26.9999H4.33337C3.60004 26.9999 3.00004 26.3999 3.00004 25.6666ZM25.6667 0.333252H23V2.99992H25.6667C26.4 2.99992 27 3.59992 27 4.33325V6.99992H29.6667V4.33325C29.6667 2.11992 27.88 0.333252 25.6667 0.333252ZM27 25.6666C27 26.3999 26.4 26.9999 25.6667 26.9999H23V29.6666H25.6667C27.88 29.6666 29.6667 27.8799 29.6667 25.6666V22.9999H27V25.6666ZM24.3334 18.8266V11.1733C24.3334 10.2133 23.8267 9.33325 23 8.86659L16.3334 5.02659C15.92 4.78659 15.4667 4.66659 15 4.66659C14.5334 4.66659 14.08 4.78659 13.6667 5.02659L7.00004 8.85325C6.17337 9.33325 5.66671 10.2133 5.66671 11.1733V18.8266C5.66671 19.7866 6.17337 20.6666 7.00004 21.1333L13.6667 24.9733C14.08 25.2133 14.5334 25.3333 15 25.3333C15.4667 25.3333 15.92 25.2133 16.3334 24.9733L23 21.1333C23.8267 20.6666 24.3334 19.7866 24.3334 18.8266ZM13.6667 21.8933L8.33337 18.8266V12.6533L13.6667 15.7599V21.8933ZM15 13.4533L9.72004 10.3733L15 7.33325L20.28 10.3733L15 13.4533ZM21.6667 18.8266L16.3334 21.8933V15.7599L21.6667 12.6533V18.8266Z" fill="white"></path>
+						</svg>
+					  </div>
+					<div class="feature-button" id="ar" onclick="takescreenshot()" style="display:flex;">
+						<h5>Take Screenshot</h5>
+					</div>
+					<div class="feature-button" id="arclose" onclick="closeAR()"   style="display:none;">
+						<h5>Close AR</h5>
+						<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+						  <path d="M3.00004 4.33325C3.00004 3.59992 3.60004 2.99992 4.33337 2.99992H7.00004V0.333252H4.33337C2.12004 0.333252 0.333374 2.11992 0.333374 4.33325V6.99992H3.00004V4.33325ZM3.00004 25.6666V22.9999H0.333374V25.6666C0.333374 27.8799 2.12004 29.6666 4.33337 29.6666H7.00004V26.9999H4.33337C3.60004 26.9999 3.00004 26.3999 3.00004 25.6666ZM25.6667 0.333252H23V2.99992H25.6667C26.4 2.99992 27 3.59992 27 4.33325V6.99992H29.6667V4.33325C29.6667 2.11992 27.88 0.333252 25.6667 0.333252ZM27 25.6666C27 26.3999 26.4 26.9999 25.6667 26.9999H23V29.6666H25.6667C27.88 29.6666 29.6667 27.8799 29.6667 25.6666V22.9999H27V25.6666ZM24.3334 18.8266V11.1733C24.3334 10.2133 23.8267 9.33325 23 8.86659L16.3334 5.02659C15.92 4.78659 15.4667 4.66659 15 4.66659C14.5334 4.66659 14.08 4.78659 13.6667 5.02659L7.00004 8.85325C6.17337 9.33325 5.66671 10.2133 5.66671 11.1733V18.8266C5.66671 19.7866 6.17337 20.6666 7.00004 21.1333L13.6667 24.9733C14.08 25.2133 14.5334 25.3333 15 25.3333C15.4667 25.3333 15.92 25.2133 16.3334 24.9733L23 21.1333C23.8267 20.6666 24.3334 19.7866 24.3334 18.8266ZM13.6667 21.8933L8.33337 18.8266V12.6533L13.6667 15.7599V21.8933ZM15 13.4533L9.72004 10.3733L15 7.33325L20.28 10.3733L15 13.4533ZM21.6667 18.8266L16.3334 21.8933V15.7599L21.6667 12.6533V18.8266Z" fill="white"></path>
+						</svg>
+					  </div>
+					  <div class="feature-button" onclick="downloadFile(this)">
+						<h5>Download Ar Tracking Image</h5>
+						
+					  </div>
+				</div>
+			</div>
+		</main>
+	
+	<!-- <div class="uk-container uk-card uk-card-default uk-padding uk-margin-medium-bottom">
+		<div class="uk-grid uk-child-width-1-3@m">
+			<div>
+				<label for="input" class="image-previewer" data-cropzee="input"></label>
+				<input id="input" type="file" accept="image/*">
+			</div>
+		</div>
+	</div> -->
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
