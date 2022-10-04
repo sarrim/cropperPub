@@ -1,0 +1,238 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    background: #f5f5f5;
+}
+.iframeclass{
+    height: 100vh;
+    width: 100vw;
+}
+.svgDiv{
+    padding: 50px;
+    cursor: pointer;
+    position: absolute;
+}
+#staticBackdrop{
+    padding: 2em;
+    background: #111;
+    color: #fff;
+    width: 374px;
+    line-height: 1;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* z-index: 5; */
+}
+#staticBackdrop {
+    scrollbar-color: #1d1d1d #000;
+}
+
+.offcanvas-body h1{
+    font-size: 36px;
+    font-weight: 700;
+    cursor: context-menu;
+    letter-spacing: 0px;
+}
+.offcanvas h1:nth-child(1){
+    margin-top: 30px;
+}
+.closeCanvasBtn{
+    cursor: pointer;
+}
+.offcanvasDiv2{
+    margin: 50px 0;
+}
+.offcanvasDiv2 h5{
+    font-size: 18px;
+}
+.bikeColorDiv,.bikeBgDiv{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.colors{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.bikeBtnsColor,.bikeBtnsBg{
+    width: 30px;
+    height: 30px;
+    border: 0;
+}
+.bikeBtnsColor.active,.bikeBtnsBg.active{
+    border: 2px solid blue;
+    /* width: 34px;
+    height: 34px; */
+    transform: scale(1.1);
+}
+.grayBtn{
+    background: #6c757d;
+}
+.whiteBtn{    
+    background: #fff;
+}
+.blackBtn{
+    background: #000;
+}
+.darkBtn{
+    background: #212121;
+}
+.bikeBgDiv{
+    margin: 50px 0;
+}
+.feature-button {
+    width: 100%;
+    height: 52px;
+    color: white;
+    background: #ff6600;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.feature-button:not(:last-of-type) {
+    margin-bottom: 10px;
+}
+.feature-button h5 {
+    font-size: 15px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+.feature-button:hover {
+    background: white;
+    color: #ff6600;
+    box-shadow: inset 0px 0px 0 2px #ff6600;
+}
+.feature-button:hover svg > path {
+    fill: #ff6600;
+}
+
+/* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+    background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+
+  background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 150ms infinite linear;
+  -moz-animation: spinner 150ms infinite linear;
+  -ms-animation: spinner 150ms infinite linear;
+  -o-animation: spinner 150ms infinite linear;
+  animation: spinner 150ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
